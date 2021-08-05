@@ -1,0 +1,120 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroActivity"
+    android:background="@color/white">
+
+    <ScrollView
+        android:id="@+id/Scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:background="@color/Color_Primario">
+
+                <ImageView
+                    android:src="@drawable/ic_roto"
+                    android:layout_gravity="center"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:text="Por y para los estudiantes"
+                    android:textColor="#fff"
+                    android:textSize="22sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:id="@+id/EditTextNombre"
+                    android:drawableLeft="@drawable/ic_baseline_assignment_ind_24"
+                    android:textColor="#fff"
+                    android:background="@color/Color_Primario"
+                    android:layout_marginTop="80dp"
+                    android:layout_gravity="center"
+                    android:hint="Escribe tu nombre"
+                    android:padding="10dp"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/editTextApellido"
+                    android:drawableLeft="@drawable/ic_baseline_assignment_ind_24"
+                    android:textColor="#fff"
+                    android:background="@color/Color_Primario"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:hint="Escribe tu apellido"
+                    android:padding="10dp"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/EditTextEmail"
+                    android:drawableLeft="@drawable/ic_baseline_mail_24"
+                    android:textColor="#fff"
+                    android:background="@color/Color_Primario"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:hint="Escribe tu correo"
+                    android:padding="10dp"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/EditTextPassword"
+                    android:drawableLeft="@drawable/ic_baseline_lock_24"
+                    android:textColor="#fff"
+                    android:background="@color/Color_Primario"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:hint="Escribe tu clave"
+                    android:padding="10dp"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnRegistrar"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:text="Registrarse"
+                    android:layout_gravity="center
+"               android:layout_marginTop="20dp"/>
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:backgroundTint="@color/dark_blue"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:text="¿Ya tienes una cuenta?"
+                    android:layout_gravity="center
+"               android:layout_marginTop="5dp"/>
+                <TextView
+
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:textSize="21sp"
+                    android:layout_marginTop="100dp"
+                    android:text="¿Olvidaste tu contraseña?"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
