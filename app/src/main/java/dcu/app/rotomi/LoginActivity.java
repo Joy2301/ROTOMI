@@ -1,6 +1,5 @@
 package dcu.app.rotomi;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
@@ -10,6 +9,8 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +18,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import dcu.app.rotomi.Entidades.Usuarios;
+import dcu.app.rotomi.SQLiteHelper.ConexionSQLiteHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,6 +31,12 @@ public class LoginActivity extends AppCompatActivity {
 
     //Variables de los datos
     private String EmailLogin, PasswordLogin;
+
+    //Creamos la instancia de la base de datos
+    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"Usuarios",null,1);
+
+    //Creamos una instancia de Usuarios
+    Usuarios us = new Usuarios();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,25 +63,30 @@ public class LoginActivity extends AppCompatActivity {
                 EmailLogin = mEditTextEmailLogin.getText().toString();
                 PasswordLogin = mEdittextPasswordLogin.getText().toString();
 
+                us.setCorreo(EmailLogin);
+                us.setClave(PasswordLogin);
+
                 //En caso de que algun campo este vacio, muestra un error
                 if(EmailLogin.isEmpty()){
                     mEditTextEmailLogin.setError("Email es Requerido.");
                     return;
                 }
-
-                if(PasswordLogin.isEmpty()){
+                else if(PasswordLogin.isEmpty()){
                     mEdittextPasswordLogin.setError("Clave es Requerida");
                     return;
                 }
 
-                if(PasswordLogin.length() < 6){
+                else if(PasswordLogin.length() < 6){
                     mEdittextPasswordLogin.setError("La clave debe tener mas de 6 caracteres");
                     return;
                 }
+                else{
+                    //Metodo para el inicio de Sesion
+                    IniciarSesion();
+                }
 
 
-                //Metodo para el inicio de Sesion
-                IniciarSesion();
+
 
 
             }
@@ -79,7 +94,37 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void IniciarSesion() {
-        startActivity(new Intent(LoginActivity.this, InicioActivity.class));
+
+        try {
+            Cursor cursor = conn.ConsultarUsuPass(mEditTextEmailLogin.getText().toString(), mEdittextPasswordLogin.getText().toString());
+
+            if (cursor.getCount() > 0){
+
+                try {
+                    Intent i = new Intent(LoginActivity.this, InicioActivity.class);
+                    i.putExtra("Correo", mEditTextEmailLogin.getText().toString());
+                    i.putExtra("Clave", mEdittextPasswordLogin.getText().toString());
+                    startActivity(i);
+                }
+                catch (Exception e){
+                    Toast.makeText(LoginActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+
+
+                Toast.makeText(LoginActivity.this, "Bienvenido " + EmailLogin, Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos: ", Toast.LENGTH_LONG).show();
+            }
+        }
+        catch (SQLException e){
+            Toast.makeText(LoginActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+        mEditTextEmailLogin.setText("");
+        mEdittextPasswordLogin.setText("");
+
+
     }
 
     //para mostrar notificaciones

@@ -9,35 +9,178 @@
     android:background="@color/white">
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/TabLayout"
+    <ScrollView
+        android:id="@+id/Scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E3E4E5">
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/TabPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Perfil" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:background="@color/Color_Primario">
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/TabHorario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Horario" />
+                <ImageView
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/user"
+                    android:layout_gravity="center"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"/>
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/TabPaginas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Paginas" />
-    </com.google.android.material.tabs.TabLayout>
+            </LinearLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/ViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    </androidx.viewpager.widget.ViewPager>
+
+                <Button
+                    android:id="@+id/btnHorario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    app:backgroundTint="@color/dark_blue"
+                    android:text="Horario" />
+
+                <Button
+                    android:id="@+id/btnPaginasUtiles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="Paginas"
+                    app:backgroundTint="@color/dark_blue" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/textViewIndicador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:text="Datos de Perfil"
+                android:textSize="30dp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewDatosInicio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:textStyle="normal"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:text="Data"
+                android:textColor="@color/Color_Primario" />
+
+
+            <TextView
+                android:id="@+id/textViewInformacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="65dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Informacion de la aplicacion"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+
+            <TextView
+                android:id="@+id/textViewAyuda1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="casual"
+                android:gravity="left"
+                android:text="Que es ROTOMI?"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewAyuda1R"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="casual"
+                android:gravity="left"
+                android:text="@string/QueEsRotomi"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textViewAyuda12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="casual"
+                android:gravity="left"
+                android:text="Como agrego materias en el Horario?"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewAyuda2R"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="casual"
+                android:gravity="left"
+                android:text="@string/ComoAgregarMaterias"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:id="@+id/textViewAyuda3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="casual"
+                android:gravity="left"
+                android:text="Como guardo mis paginas en la pestaña de paginas utiles?"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewAyuda3R"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="casual"
+                android:gravity="left"
+                android:text="@string/ComoGuardoPaginasUtiles"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

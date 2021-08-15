@@ -2,4 +2,30 @@
     <string name="app_name">ROTOMI</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="QueEsRotomi">
+        ROTOMI es una app creada por estudiantes del instituto
+        tecnologico de las americas (ITLA) con el fin de ayudar
+        a otros estudiantes en su vida a cademica con una app que
+        les proporcione funcionalidades utiles
+    </string>
+
+    <string name="ComoAgregarMaterias">
+        Para añadir una materia, solo debes escribir el nombre
+        de la misma, seleccionar el dia que te toca y colocarle
+        una nota descriptiva, adicionanlmente tienes la opcion de
+        colocar o no una alarma, en caso de no querer poner una,
+        desactiva la opcion de colocar alarma
+    </string>
+
+    <string name="ComoGuardoPaginasUtiles">
+        Simplemente escrribe un nombre dela pagina que quieres guardar,
+        abajo de este pegas el enlace de la pagina y presionas el boton
+        guardar, si posteriormente necesitas este enlace, escribe el nombre
+        que le diste y presionas en buscar, veras como te retorna el
+        enlace guardado. Estos datos se almacenan de manera local,
+        por lo que no tendras estas paginas si cambias de dispositivo.
+    </string>
+
+
 </resources>
